@@ -292,7 +292,7 @@ pub const Client = struct {
     pub fn stop_child(self: *Self) !void {
         self.send_end() catch {}; // Evil af, but aight
 
-        const seconds_to_wait_after_end = 1;
+        const seconds_to_wait_after_end = 0;
         std.time.sleep(seconds_to_wait_after_end * std.time.ns_per_s);
         _ = try self.proc.kill(); // This won't kill the process if it is already gone
     }
